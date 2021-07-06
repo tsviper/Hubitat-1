@@ -57,7 +57,7 @@ def on() {
 def off() {
         def params  = [ Reason:"${device.name}", CamId:device.deviceNetworkId]
         parent.sendCommand('/EnableAlert', params) 
-        sendEvent(name: "switch", value: "off", descriptionText: "Enabling alerts for ${device.name}")
+        sendEvent(name: "switch", value: "off", descriptionText: "Disabling alerts for ${device.name}")
 }
 
 def inactive() {
