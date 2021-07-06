@@ -63,4 +63,6 @@ def off() {
 def inactive() {
       parent.ifDebug("Motion stopped for ${device.name} (${device.deviceNetworkId})")
       sendEvent (name: "motion", value: "inactive", descriptionText: "Motion Has Stopped")
+      //Reset objects value to [] so on new detection value changes and can be used for automations.
+      sendEvent (name: "Objects", value: "[]")
 }
