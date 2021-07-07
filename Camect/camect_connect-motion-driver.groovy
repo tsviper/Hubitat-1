@@ -69,5 +69,5 @@ def inactive() {
       parent.ifDebug("Motion stopped for ${device.name} (${device.deviceNetworkId})")
       sendEvent (name: "motion", value: "inactive", descriptionText: "Motion Has Stopped")
       //Tim - reset objects so it updates when new one is detected for automations.
-      sendEvent (name: "Objects", value: "none")
+      sendEvent (name: "Objects", value: " ")
 }
