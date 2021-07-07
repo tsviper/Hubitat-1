@@ -42,7 +42,12 @@ def updateStatus(state, time, json) {
   time = time.toInteger() * 1000
   runInMillis(time,inactive) 
   parent.ifDebug("Motion detected at ${name} (${device.deviceNetworkId})")
-  sendEvent (name: "Objects", value: "${json.detected_obj}")
+    
+  def detectedObject = "${json.detected_obj}"
+    detectedObject = detectedObject.replace("[", "").replace("]", "")
+    
+  sendEvent (name: "Objects", value: "$detectedObject")
+    
   sendEvent (name: "LastMessage", value: "${desc}")
   sendEvent (name: "LastURL", value: "${json.url}")
   sendEvent (name: "motion", value: "${newState}", descriptionText: "${desc}")
@@ -63,6 +68,6 @@ def off() {
 def inactive() {
       parent.ifDebug("Motion stopped for ${device.name} (${device.deviceNetworkId})")
       sendEvent (name: "motion", value: "inactive", descriptionText: "Motion Has Stopped")
-      //Reset objects value to [] so on new detection value changes and can be used for automations.
-      sendEvent (name: "Objects", value: "[]")
+      //Tim - reset objects so it updates when new one is detected for automations.
+      sendEvent (name: "Objects", value: "none")
 }
