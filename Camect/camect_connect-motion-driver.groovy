@@ -3,10 +3,10 @@
  *  Version: 1.3.2
  */
 metadata {
-  definition (name: "Camect Motion and Alerting", 
-              namespace: "brianwilson-hubitat", 
-              author: "bubba@bubba.org", 
-              importURL: "https://raw.githubusercontent.com/bdwilson/hubitat/master/Camect/camect_connect-motion-driver.groovy"
+  definition (name: "Camect Motion and Alerting (Tim Modified)", 
+              namespace: "brianwilson-hubitat (TIM)", 
+              author: "bubba@bubba.org(TIM)", 
+              importURL: "https://raw.githubusercontent.com/tsviper/hubitat-1/master/Camect/camect_connect-motion-driver.groovy"
   ) {
     capability "Motion Sensor"
     capability "Sensor"
